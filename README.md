@@ -162,3 +162,4 @@ Included libraries:
 * LAME [licensed under LGPL](https://github.com/rbrito/lame/blob/origin/COPYING).
 
 See [LICENSE.MP4](https://github.com/Kagami/ffmpeg.js/blob/master/LICENSE.MP4) for the full text of software licenses used in this build.
+# ffmpeg.js.wasm
