@@ -265,7 +265,6 @@ FFMPEG_COMMON_ARGS = \
 
 build/ffmpeg-webm/ffmpeg.bc: $(WEBM_SHARED_DEPS)
 	cd build/ffmpeg-webm && \
-	git reset --hard && \
 	patch -p1 < ../ffmpeg-default-font.patch && \
 	patch -p1 < ../ffmpeg-disable-monotonic.patch && \
 	EM_PKG_CONFIG_PATH=$(FFMPEG_WEBM_PC_PATH) emconfigure ./configure \
@@ -284,7 +283,6 @@ build/ffmpeg-webm/ffmpeg.bc: $(WEBM_SHARED_DEPS)
 
 build/ffmpeg-mp4/ffmpeg.bc: $(MP4_SHARED_DEPS)
 	cd build/ffmpeg-mp4 && \
-	git reset --hard && \
 	patch -p1 < ../ffmpeg-disable-monotonic.patch && \
 	EM_PKG_CONFIG_PATH=$(FFMPEG_MP4_PC_PATH) emconfigure ./configure \
 		$(FFMPEG_COMMON_ARGS) \
@@ -306,6 +304,7 @@ EMCC_COMMON_ARGS = \
 	--closure 1 \
 	-s TOTAL_MEMORY=67108864 \
 	-s OUTLINING_LIMIT=20000 \
+	-s WASM=1 \
 	-O3 --memory-init-file 0 \
 	--pre-js $(PRE_JS) \
 	-o $@
