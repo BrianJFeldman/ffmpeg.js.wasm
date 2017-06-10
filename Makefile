@@ -301,11 +301,9 @@ build/ffmpeg-mp4/ffmpeg.bc: $(MP4_SHARED_DEPS)
 # NOTE(Kagami): Bump heap size to 64M, default 16M is not enough even
 # for simple tests and 32M tends to run slower than 64M.
 EMCC_COMMON_ARGS = \
-	--closure 1 \
 	-s TOTAL_MEMORY=67108864 \
 	-s OUTLINING_LIMIT=20000 \
 	-s WASM=1 \
-	-O3 --memory-init-file 0 \
 	--pre-js $(PRE_JS) \
 	-o $@
 
